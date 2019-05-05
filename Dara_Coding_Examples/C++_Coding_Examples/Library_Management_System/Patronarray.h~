@@ -1,0 +1,27 @@
+#ifndef PATRONARRAY_H
+#define PATRONARRAY_H
+
+#include <string>
+using namespace std;
+#include "types.h"
+//#include "ChildPatron.h"
+//#include "Patron.h"
+
+
+class Patron;
+class Patronarray
+{
+   public:
+      Patronarray();
+      ~Patronarray();
+      int addPatron(Patron*);
+      int remPatron(int);
+      int getMaxPatronsIndex();
+      Patron* getPatron(int);
+      int findPatron(string, string, Patron**, int*);
+      Patron* patrons[MAX_COLL_SIZE];
+   private:
+      int     maxPatronsIndex;
+};
+
+#endif 

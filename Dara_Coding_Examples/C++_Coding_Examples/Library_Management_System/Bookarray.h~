@@ -1,0 +1,26 @@
+#ifndef BOOKARRAY_H
+#define BOOKARRAY_H
+
+#include <string>
+#include "types.h"
+#include "Book.h"
+
+
+class Bookarray
+{
+   public:
+      Bookarray();
+     // ~Bookarray();
+      int addBook(Book*);
+      void remBook(int);
+      int findBook(int, Book**, int*);
+      Book* getBook(int);
+      int getMaxCollIndex();
+      Bookarray* operator+=(Book*);
+      
+   private:      
+      Book*   collection[MAX_COLL_SIZE];
+      int     maxCollIndex;
+};
+
+#endif 

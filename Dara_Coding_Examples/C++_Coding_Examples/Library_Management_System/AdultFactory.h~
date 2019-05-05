@@ -1,0 +1,10 @@
+#ifndef ADULT_FACTORY
+#define ADULT_FACTORY
+
+#include "PatronFactory.h"
+
+class AdultFactory : public PatronFactory
+{
+   public:
+     virtual void createPatron(string firstName, string lastName, int age, Patron** newPatron);
+};

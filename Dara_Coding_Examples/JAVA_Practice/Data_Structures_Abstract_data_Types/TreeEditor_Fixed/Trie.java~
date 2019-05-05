@@ -1,0 +1,8 @@
+package comp2402TreeEditor;
+
+
+public class Trie extends Tree{
+	//       =====
+	//DUMMY CLASS TO BE REPLACED
+}
+

@@ -1,0 +1,35 @@
+#ifndef LIBRARY_H
+#define LIBRARY_H
+
+#include <string>
+#include "types.h"
+#include "Book.h"
+#include "Patron.h"
+#include "Bookarray.h"
+#include "Patronarray.h"
+
+class Library
+{
+  public:
+   Library();
+   ~Library();
+    void    init();
+    int     addBook(Book*);
+    int     addPatron(Patron*);
+    int     remPatron(int);
+    int     findBook(int, Book**, int*);
+    int     findPatron(string, string, Patron**, int*);
+    int     getMaxCollIndex();
+    int     getMaxPatronsIndex();
+    Book*   getBook(int);
+    Patron* getPatron(int);
+    Patronarray* LPatron;
+
+  private:
+    Bookarray* Pbooks;
+    //Patron* patrons[MAX_COLL_SIZE];
+    //int     maxPatronsIndex;
+};
+
+#endif
+

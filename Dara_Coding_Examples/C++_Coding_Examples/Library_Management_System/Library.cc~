@@ -1,0 +1,119 @@
+#include "Library.h"
+
+Library::Library()
+{
+   Pbooks = new Bookarray();
+   LPatron = new Patronarray();
+}
+
+Library::~Library()
+{
+  for (int i=0; i<LPatron->getMaxPatronsIndex(); ++i)
+    delete LPatron->patrons[i];
+}
+
+int Library::getMaxCollIndex()    { return Pbooks->maxCollIndex; }
+int Library::getMaxPatronsIndex() { return LPatron->maxPatronsIndex; }
+
+Book* Library::getBook(int index) 
+{ 
+  if (index < 0 || index >= getMaxCollIndex())
+    return 0;
+  return Pbooks->getBook(index); 
+}
+
+Patron* Library::getPatron(int index) 
+{ 
+  if (index < 0 || index >= getMaxPatronsIndex())
+    return 0;
+  return LPatron->patrons[index]; 
+}
+
+void Library::init()
+{
+  Book*   newBook;
+  Patron* newPatron;
+
+  newBook = new Book("Ender's Game", "Orson Scott Card", 1985);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Dune", "Frank Herbert", 1965);
+  newBook->setStatus(LOST);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Foundation", "Isaac Asimov", 1951);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Hitch Hiker's Guide to the Galaxy", "Douglas Adams", 1979);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("1984", "George Orwell", 1949);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Stranger in a Strange Land", "Robert A. Heinlein", 1961);
+  newBook->setStatus(UNDER_REPAIR);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Farenheit 451", "Ray Bradbury", 1954);
+  newBook->setStatus(LOST);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("2001:  A Space Odyssey", "Arthur C. Clarke", 1968);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("I, Robot", "Isaac Asimov", 1950);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Starship Troopers", "Robert A. Heinlein", 1959);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Do Androids Dream of Electric Sheep?", "Philip K. Dick", 1968);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Neuromancer", "William Gibson", 1984);
+  newBook->setStatus(LOST);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Ringworld", "Larry Niven", 1970);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Rendezvous with Rama", "Arthur C. Clarke", 1973);
+  newBook->setStatus(UNDER_REPAIR);
+  Pbooks->addBook(newBook);
+
+  newBook = new Book("Hyperion", "Dan Simmons", 1989);
+  Pbooks->addBook(newBook);
+
+
+  newPatron = new Patron("Jack", "Shephard");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("Kate", "Austen");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("Hugo", "Reyes");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("James", "Ford");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("Sayid", "Jarrah");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("Sun-Hwa", "Kwon");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("Jin-Soo", "Kwon");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("John", "Locke");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("Juliet", "Burke");
+  LPatron->addPatron(newPatron);
+
+  newPatron = new Patron("Benjamin", "Linus");
+  LPatron->addPatron(newPatron);
+}
+
+

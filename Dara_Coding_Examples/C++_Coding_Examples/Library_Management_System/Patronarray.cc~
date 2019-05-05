@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+#include "Patron.h"
+#include "Patronarray.h"
+
+Patronarray::Patronarray()
+{ 
+  maxPatronsIndex = 0;
+}
+
+Patronarray::~Patronarray()
+{
+  /*for (int i=0; i<maxPatronsIndex; ++i)
+    delete patrons[i];*/
+}
+
+int Patronarray::addPatron(Patron* patron)
+{
+  if (maxPatronsIndex >= MAX_COLL_SIZE - 1) {
+    return C_NOK;
+  }
+
+  patrons[maxPatronsIndex++] = patron;
+
+  return C_OK;
+}
+
+int Patronarray::remPatron(int index)
+{
+  if (index < 0 || index >= maxPatronsIndex)
+    return C_NOK;
+
+  //delete patrons[index];
+  patrons[index] = NULL;
+  return C_OK;
+}
+
+Patron* Patronarray::getPatron(int index){ 
+ 
+  if (index < 0 || index >= maxPatronsIndex)
+    return 0;
+    return patrons[index]; 
+
+}
+
+int Patronarray::findPatron(string fn, string ln, Patron** patron, int* index)
+{
+  for (int i=0; i<maxPatronsIndex; ++i) {
+    if (patrons[i] == 0)
+      continue;
+    if (patrons[i]->getFname() == fn && patrons[i]->getLname() == ln) {
+      *patron = patrons[i];
+      *index  = i;
+      return C_OK;
+    }
+  }
+  *patron =  0;
+  *index  = -1;
+  return C_NOK;
+}
+
+int Patronarray::getMaxPatronsIndex()
+{
+   return maxPatronsIndex;
+}
+
