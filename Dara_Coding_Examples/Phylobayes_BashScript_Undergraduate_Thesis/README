@@ -1,0 +1,12 @@
+Undergraduate Thesis
+
+Works in a tree directory that contains installed PhyloBayes Software.
+
+bashscript takes 6 arguments
+- the increment value 
+- the spr value
+- the nni value
+- file names for the 2 files
+- a directory name
+
+Read the thesis for more information on this pipeline and it's application.
