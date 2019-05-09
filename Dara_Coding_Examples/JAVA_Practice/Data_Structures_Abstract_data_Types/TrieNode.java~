@@ -1,6 +1,0 @@
-package comp2402TreeEditor;
-
-public class TrieNode extends TreeNode{
-	//DUMMY CLASS TO BE RECPLACED
-}
-	
